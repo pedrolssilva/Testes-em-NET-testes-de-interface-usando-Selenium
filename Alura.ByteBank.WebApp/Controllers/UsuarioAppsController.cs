@@ -162,6 +162,7 @@ namespace Alura.ByteBank.WebApp.Controllers
                         //HttpContext.Request.Headers.Remove("Authorization");
                         //HttpContext.Request.Headers.Add("Authorization","Bearer " + token);
                         HttpContext.Session.SetString("JWToken", token);
+                        HttpContext.Session.SetString("user", _usuario.UserName);                        
                         return RedirectToAction("Index","Home");
                     }
                 }

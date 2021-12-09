@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -29,13 +32,13 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="ContaCorrentes" asp-action="Index">Conta-Corrente</a>
-                        </li>                       
+                        </li>
                     </ul>
                     <ul class="navbar-nav flex-grow-2">
                         <li class="nav-item">
                             @*<a class="nav-link text-dark" asp-area="" asp-controller="UsuarioApps" asp-action="Logout">Logout</a>*@
                             <form method="post" asp-controller="UsuarioApps" asp-action="Logout">
-                                <input class="btn btn-link text-white" type="submit" value="Logout" />
+                                <input class="btn btn-link text-white" type="submit" value="Logout | @HttpContextAccessor.HttpContext.Session.GetString("user")" />
                             </form>
                         </li>
                     </ul>

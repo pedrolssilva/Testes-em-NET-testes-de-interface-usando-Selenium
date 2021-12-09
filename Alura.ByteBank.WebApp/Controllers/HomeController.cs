@@ -21,7 +21,7 @@ namespace Alura.ByteBank.WebApp.Controllers
 
         [Authorize]
         public IActionResult Index()
-        {
+        {           
             return View();
         }
 

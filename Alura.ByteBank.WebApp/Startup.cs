@@ -28,7 +28,17 @@ namespace Alura.ByteBank.WebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddSession();
+            //services.AddSession();
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             var key = Encoding.ASCII.GetBytes(Configuracao.Secret);
             services.AddAuthentication(x =>
             {
