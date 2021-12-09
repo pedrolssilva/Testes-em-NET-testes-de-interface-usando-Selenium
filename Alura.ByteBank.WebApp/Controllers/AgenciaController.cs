@@ -82,15 +82,7 @@ namespace Alura.ByteBank.WebApp.Controllers
         [Authorize]
         public ActionResult Edit(int id, [Bind("Id,Identificador,Numero,Nome,Endereco")] Agencia agencia)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-
+          
             if (id != agencia.Id)
             {
                 return NotFound();
