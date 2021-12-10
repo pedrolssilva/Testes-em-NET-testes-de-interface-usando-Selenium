@@ -56,8 +56,7 @@ namespace Alura.ByteBank.WebApp.Controllers
 
         // POST: Clientes/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Authorize]
+        [ValidateAntiForgeryToken]       
         public ActionResult Create([Bind("Id,Identificador,CPF,Nome,Profissao")] Cliente cliente)
         {
             if (ModelState.IsValid)

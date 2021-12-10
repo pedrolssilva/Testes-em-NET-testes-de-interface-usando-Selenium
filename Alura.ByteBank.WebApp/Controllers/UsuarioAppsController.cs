@@ -159,8 +159,8 @@ namespace Alura.ByteBank.WebApp.Controllers
                     var token = TokenService.GenerateToken(_usuario);
                     if (_usuario.Senha == senha)
                     {
-                        //HttpContext.Request.Headers.Remove("Authorization");
-                        //HttpContext.Request.Headers.Add("Authorization","Bearer " + token);
+                        HttpContext.Request.Headers.Remove("Authorization");
+                        HttpContext.Request.Headers.Add("Authorization","Bearer " + token);
                         HttpContext.Session.SetString("JWToken", token);
                         HttpContext.Session.SetString("user", _usuario.UserName);                        
                         return RedirectToAction("Index","Home");
