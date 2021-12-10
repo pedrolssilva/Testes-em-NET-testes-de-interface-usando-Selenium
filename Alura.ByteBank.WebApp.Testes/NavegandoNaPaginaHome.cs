@@ -7,7 +7,7 @@ using Xunit;
 
 namespace Alura.ByteBank.WebApp.Testes
 {
-    public class NavegandoNaPaginaHome
+    public class NavegandoNaPaginaHome:IDisposable
     {
         private readonly string diretorio;
         private ChromeDriver driver;
@@ -41,6 +41,13 @@ namespace Alura.ByteBank.WebApp.Testes
             Assert.Contains("Login", driver.PageSource);
             Assert.Contains("Home", driver.PageSource);
 
+        }
+
+        //Cleanup
+        public void Dispose()
+        {
+            //Fechar o navegador
+            driver.Quit();
         }
     }
 }
