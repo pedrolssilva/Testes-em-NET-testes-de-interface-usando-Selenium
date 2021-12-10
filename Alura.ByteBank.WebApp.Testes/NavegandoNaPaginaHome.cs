@@ -10,7 +10,7 @@ namespace Alura.ByteBank.WebApp.Testes
 {
     public class NavegandoNaPaginaHome:IClassFixture<Fixture>
     {
-        private readonly string diretorio;
+        //private readonly string diretorio;
         private IWebDriver driver;
 
         //Setup
