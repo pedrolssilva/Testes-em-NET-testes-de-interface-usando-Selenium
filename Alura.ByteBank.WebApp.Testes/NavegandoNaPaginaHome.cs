@@ -1,3 +1,4 @@
+using Alura.ByteBank.WebApp.Testes.Util;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -7,16 +8,17 @@ using Xunit;
 
 namespace Alura.ByteBank.WebApp.Testes
 {
-    public class NavegandoNaPaginaHome:IDisposable
+    public class NavegandoNaPaginaHome:IClassFixture<Fixture>
     {
         private readonly string diretorio;
-        private ChromeDriver driver;
+        private IWebDriver driver;
 
         //Setup
-        public NavegandoNaPaginaHome()
+        public NavegandoNaPaginaHome(Fixture fixture)
         {
-            diretorio = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            driver = new ChromeDriver(diretorio);
+            //diretorio = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            //driver = new ChromeDriver(diretorio);
+            driver = fixture.Driver;
         }
         [Fact]
         public void CarregaPaginaHomeEVerificaTituloDaPagina()
@@ -43,11 +45,11 @@ namespace Alura.ByteBank.WebApp.Testes
 
         }
 
-        //Cleanup
-        public void Dispose()
-        {
-            //Fechar o navegador
-            driver.Quit();
-        }
+        ////Cleanup
+        //public void Dispose()
+        //{
+        //    //Fechar o navegador
+        //    driver.Quit();
+        //}
     }
 }
