@@ -7,18 +7,22 @@ using Xunit;
 
 namespace Alura.ByteBank.WebApp.Testes
 {
-    public class AgenciaSeleniumTestes
+    public class NavegandoNaPaginaHome
     {
         private readonly string diretorio;
-        public AgenciaSeleniumTestes()
+        private ChromeDriver driver;
+
+        //Setup
+        public NavegandoNaPaginaHome()
         {
             diretorio = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            driver = new ChromeDriver(diretorio);
         }
         [Fact]
-        public void CarregaPaginaIndexAgencia()
+        public void CarregaPaginaHomeEVerificaTituloDaPagina()
         {
             //Arrange
-            IWebDriver driver = new ChromeDriver(diretorio);
+            //IWebDriver driver = new ChromeDriver(diretorio);
             //Act
             driver.Navigate().GoToUrl("https://localhost:44309");
             //Assert
@@ -27,14 +31,15 @@ namespace Alura.ByteBank.WebApp.Testes
         }
 
         [Fact]
-        public void CarregadaPaginaIndexAgenciaVerificaExistenciaLinkAgencia()
+        public void CarregadaPaginaHomeVerificaExistenciaLinkLoginEHome()
         {
             //Arrange
-            IWebDriver driver = new ChromeDriver(diretorio);
+            //IWebDriver driver = new ChromeDriver(diretorio);
             //Act
-            driver.Navigate().GoToUrl("https://localhost:44309/Agencia");
+            driver.Navigate().GoToUrl("https://localhost:44309");
             //Assert
-            Assert.Contains("Agência", driver.PageSource);
+            Assert.Contains("Login", driver.PageSource);
+            Assert.Contains("Home", driver.PageSource);
 
         }
     }

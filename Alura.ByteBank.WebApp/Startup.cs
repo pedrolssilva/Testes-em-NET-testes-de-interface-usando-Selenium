@@ -96,7 +96,7 @@ namespace Alura.ByteBank.WebApp
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=UsuarioApps}/{action=Login}/{id?}");
+                    pattern: "{controller=Home}/{action=PrincipalHome}/{id?}");
             });
         }
     }

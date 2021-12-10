@@ -19,9 +19,14 @@ namespace Alura.ByteBank.WebApp.Controllers
             _logger = logger;
         }
 
-        [Authorize]
+        
         public IActionResult Index()
         {           
+            return View();
+        }
+
+        public IActionResult PrincipalHome()
+        {
             return View();
         }
 
