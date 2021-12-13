@@ -24,7 +24,7 @@ namespace Alura.ByteBank.WebApp.Testes
         public void CarregaPaginaHomeEVerificaTituloDaPagina()
         {
             //Arrange
-            //IWebDriver driver = new ChromeDriver(diretorio);
+            IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
             //Act
             driver.Navigate().GoToUrl("https://localhost:44309");
             //Assert
@@ -36,7 +36,7 @@ namespace Alura.ByteBank.WebApp.Testes
         public void CarregadaPaginaHomeVerificaExistenciaLinkLoginEHome()
         {
             //Arrange
-            //IWebDriver driver = new ChromeDriver(diretorio);
+            IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)); ;
             //Act
             driver.Navigate().GoToUrl("https://localhost:44309");
             //Assert
