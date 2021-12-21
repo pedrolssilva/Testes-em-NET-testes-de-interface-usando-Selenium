@@ -25,7 +25,7 @@ namespace Alura.ByteBank.WebApp.Testes
             var login = driver.FindElement(By.Id("Email"));//Selecionar elementos do HTML
             var senha = driver.FindElement(By.Id("Senha"));//Selecionar elementos do HTML
             var btnLogar = driver.FindElement(By.Id("btn-logar"));//Selecionar elementos do HTML
-          
+
             login.SendKeys("andre@email.com");
             senha.SendKeys("senha01");
 
@@ -75,7 +75,7 @@ namespace Alura.ByteBank.WebApp.Testes
 
             //Assert
             Assert.Contains("Login", driver.PageSource);
-            
+
         }
 
         [Fact]
@@ -100,6 +100,6 @@ namespace Alura.ByteBank.WebApp.Testes
             Assert.Contains("Adicionar Agência", driver.PageSource);
 
         }
-
+       
     }
 }
