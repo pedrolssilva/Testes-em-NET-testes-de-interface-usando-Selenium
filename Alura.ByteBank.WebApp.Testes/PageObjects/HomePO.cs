@@ -15,9 +15,11 @@ namespace Alura.ByteBank.WebApp.Testes.PageObjects
         private By linkClientes;
         private By linkAgencias;
 
+        public IWebDriver Driver { get => driver; set => driver = value; }
+
         public HomePO(IWebDriver driver)
         {
-            this.driver = driver;
+            this.Driver = driver;
             linkHome = By.Id("home");
             linkContaCorrentes = By.Id("contacorrente");
             linkClientes = By.Id("clientes");
@@ -26,27 +28,27 @@ namespace Alura.ByteBank.WebApp.Testes.PageObjects
 
         public void Navegar(string url)
         {
-            driver.Navigate().GoToUrl(url);
+            Driver.Navigate().GoToUrl(url);
         }
 
         public void LinkHomeClick()
         {
-            driver.FindElement(linkHome).Click();
+            Driver.FindElement(linkHome).Click();
         }
 
         public void LinkContaCorrenteClick()
         {
-            driver.FindElement(linkContaCorrentes).Click();
+            Driver.FindElement(linkContaCorrentes).Click();
         }
 
         public void LinkClientesClick()
         {
-            driver.FindElement(linkClientes).Click();
+            Driver.FindElement(linkClientes).Click();
         }
 
         public void LinkAgenciaslick()
         {
-            driver.FindElement(linkAgencias).Click();
+            Driver.FindElement(linkAgencias).Click();
         }
     }
 }
